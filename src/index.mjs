@@ -6,7 +6,6 @@ import determineTargetState from './determineTargetState.mjs'
 
 async function run() {
   const context = github.context
-  console.log(context)
   if ((!context && !context.payload) || !context.payload.pull_request) {
     core.setFailed('Context or pull request not found.')
   }
@@ -43,6 +42,9 @@ async function run() {
   }
 
   const targetState = determineTargetState(gh, sc)
+  if (!targetState || targetState === null) {
+    return
+  }
 
   const res = await shortcutMoveStoryState(storyId, targetState)
   if (!res || res.statusCode !== 200) {

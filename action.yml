@@ -1,0 +1,22 @@
+branding:
+  color: purple
+  icon: move
+description: 'Move stories on Shortcut.com'
+inputs:
+  shortcut_story_prefix:
+    description: Shortcut/Clubhouse prefix (default "ch")
+    required: true
+    default: 'ch'
+  shortcut_review_state_id:
+    description: The workflow state where the story should be moved to
+    required: true
+  shortcut_ready_state_id:
+    description: The workflow state where the story should be moved to
+    required: true
+  github_gatekeeper:
+    description: GitHub username of the reviewer who manages the workflow state
+    required: true
+name: Shortcut Move Story
+runs:
+  main: dist/index.js
+  using: node12

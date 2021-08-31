@@ -16846,7 +16846,7 @@ An error to be thrown when given an unsupported protocol.
         const storyId = getStoryId(context.payload.pull_request)
 
         if (!storyId || storyId === null) {
-          core.setFailed('No story ID found.')
+          core.info('No story ID found.')
           return
         }
 

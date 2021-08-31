@@ -68,7 +68,7 @@
     "prettier": "^2.3.2"
   },
   "engines": {
-    "node": "12"
+    "node": "^12||^16"
   },
   "release": {
     "branches": [

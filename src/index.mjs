@@ -13,7 +13,7 @@ async function run() {
   const storyId = getStoryId(context.payload.pull_request)
 
   if (!storyId || storyId === null) {
-    core.setFailed('No story ID found.')
+    core.info('No story ID found.')
     return
   }
 

@@ -19,4 +19,4 @@ inputs:
 name: Shortcut Move Story
 runs:
   main: dist/index.js
-  using: node12
+  using: node16

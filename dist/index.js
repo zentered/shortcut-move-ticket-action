@@ -1,4 +1,3 @@
-import './sourcemap-register.cjs'
 import { createRequire as __WEBPACK_EXTERNAL_createRequire } from 'module'
 /******/ var __webpack_modules__ = {
   /***/ 7351: /***/ function (
@@ -20786,5 +20785,3 @@ An error to be thrown when the request is aborted with `.cancel()`.
 
   run()
 })()
-
-//# sourceMappingURL=index.js.map

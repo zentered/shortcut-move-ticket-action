@@ -1,5 +1,4 @@
-/* eslint-disable node/no-unsupported-features/es-syntax */
-import determineTargetState from '../src/determineTargetState.mjs'
+import determineTargetState from '../src/determineTargetState'
 
 const sc = { readyStateId: 1, reviewStateId: 2 }
 
@@ -32,4 +31,9 @@ test('determineTargetState() should determine review state', () => {
     sc
   )
   expect(state).toBe(sc.reviewStateId)
+})
+
+test('determineTargetState() should return null', () => {
+  const state = determineTargetState({}, sc)
+  expect(state).toBe(null)
 })

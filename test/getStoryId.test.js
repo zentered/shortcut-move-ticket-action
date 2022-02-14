@@ -1,34 +1,42 @@
-/* eslint-disable node/no-unsupported-features/es-syntax */
-import getStoryId from '../src/getStoryId.mjs'
+import getStoryId from '../src/getStoryId'
+
+test('getStoryId() should return the story id with default prefix', () => {
+  const storyId = getStoryId({
+    head: {
+      ref: 'sc-1234/cool-new-feature'
+    }
+  })
+  expect(storyId).toBe('1234')
+})
 
 test('getStoryId() should return the story id from a branch', () => {
   const storyId = getStoryId(
     {
       head: {
-        ref: 'ch123/cool-new-feature'
+        ref: 'sc-1123/cool-new-feature'
       }
     },
-    'ch'
+    'sc'
   )
-  expect(storyId).toBe('123')
+  expect(storyId).toBe('1123')
 })
 
 test('getStoryId() should return the story id from the PR body', () => {
   const storyId = getStoryId(
     {
-      body: '[ch4444]\r\n\r\nTesting stuff here, no worries.'
+      body: '[sc-14444]\r\n\r\nTesting stuff'
     },
-    'ch'
+    'sc'
   )
-  expect(storyId).toBe('4444')
+  expect(storyId).toBe('14444')
 })
 
 test('getStoryId() should return the story autolink id from the PR body', () => {
   const storyId = getStoryId(
     {
-      body: 'CH-12345\r\n\r\nTesting stuff here, no worries.'
+      body: 'Closes sc-12345\r\n\r\nTesting stuff'
     },
-    'ch'
+    'sc'
   )
   expect(storyId).toBe('12345')
 })
@@ -37,10 +45,15 @@ test('getStoryId() should return the story id from a branch without the prefix',
   const storyId = getStoryId(
     {
       head: {
-        ref: '321/cool-new-feature'
+        ref: '32111/cool-new-feature'
       }
     },
-    'ch'
+    'sc'
   )
-  expect(storyId).toBe('321')
+  expect(storyId).toBe('32111')
+})
+
+test('getStoryId() should return null when no arguments are given', () => {
+  const storyId = getStoryId({})
+  expect(storyId).toBe(null)
 })

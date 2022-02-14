@@ -15,11 +15,14 @@ function isReadyForReview(gh) {
 
 export default function (gh, sc) {
   if (
-    gh.context.eventName === 'pull_request_review' &&
+    gh?.context?.eventName === 'pull_request_review' &&
     isReadyForDeploy(gh, sc)
   ) {
     return sc.readyStateId
-  } else if (gh.context.eventName === 'pull_request' && isReadyForReview(gh)) {
+  } else if (
+    gh?.context?.eventName === 'pull_request' &&
+    isReadyForReview(gh)
+  ) {
     return sc.reviewStateId
   } else {
     return null

@@ -4,9 +4,9 @@ branding:
 description: 'Move stories on Shortcut.com'
 inputs:
   shortcut_story_prefix:
-    description: Shortcut/Clubhouse prefix (default "ch")
+    description: Shortcut prefix (default "sc")
     required: true
-    default: 'ch'
+    default: 'sc'
   shortcut_review_state_id:
     description: The workflow state where the story should be moved to
     required: true

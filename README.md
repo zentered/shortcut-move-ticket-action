@@ -27,7 +27,7 @@ You can configure a "gatekeeper" who is responsible for the state changes. If:
 
 The Action requires the Shortcut state IDs and the gatekeeper GitHub login to
 work, as well as a
-[Shortcut API Token](https://app.clubhouse.io/volition/settings/account/api-tokens).
+[Shortcut API Token](https://shortcut.com/api/rest/v3#Authentication).
 
 ## Table of Contents
 

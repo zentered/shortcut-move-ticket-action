@@ -1,12 +1,12 @@
 export default function (payload, prefix) {
   if (!prefix) {
-    // default shortcut/clubhouse prefix
-    prefix = 'ch'
+    // default shortcut prefix
+    prefix = 'sc'
   }
 
-  const branchRegex = new RegExp(`${prefix.toLowerCase()}\\d{1,6}`)
-  const referenceRegex = new RegExp(`\\[${prefix.toLowerCase()}\\d{1,6}\\]`)
-  const autolinkRegex = new RegExp(`${prefix.toUpperCase()}-\\d{1,6}`)
+  const branchRegex = new RegExp(`${prefix.toLowerCase()}-\\d{1,6}`)
+  const referenceRegex = new RegExp(`\\[${prefix.toLowerCase()}-\\d{1,6}\\]`)
+  const autolinkRegex = new RegExp(`${prefix.toLowerCase()}-\\d{1,6}`)
   const missingPrefixInBranchRegex = new RegExp(`^\\d{1,6}`)
 
   if (
@@ -18,16 +18,16 @@ export default function (payload, prefix) {
     // test if shorcut story id is in the branch
     const parts = branchRegex.exec(payload.head.ref)
     if (parts[0].startsWith(prefix)) {
-      return parts[0].replace(prefix, '')
+      return parts[0].replace(prefix, '').replace('-', '')
     }
   } else if (
     payload &&
     payload.body &&
     referenceRegex.test(payload.body) === true
   ) {
-    // test if shortcut story is in body comment `[ch123]`
+    // test if shortcut story is in body comment `[sc-123]`
     const parts = referenceRegex.exec(payload.body)
-    const part = parts[0].replace('[', '').replace(']', '')
+    const part = parts[0].replace('[', '').replace(']', '').replace('-', '')
     if (part.startsWith(prefix)) {
       return part.replace(prefix, '')
     }
@@ -36,10 +36,10 @@ export default function (payload, prefix) {
     payload.body &&
     autolinkRegex.test(payload.body) === true
   ) {
-    // test if link to shortcut story exists `CH-123`
+    // test if link to shortcut story exists `sc-123`
     const parts = autolinkRegex.exec(payload.body)
-    if (parts[0].startsWith(prefix.toUpperCase())) {
-      return parts[0].substr(3)
+    if (parts[0].startsWith(prefix.toLowerCase())) {
+      return parts[0].substring(3)
     }
   } else if (
     payload &&

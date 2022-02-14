@@ -57,13 +57,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.4.0
+      - uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 16
       - name: Shortcut Move
-        uses: zentered/shortcut-move-ticket-action@v1.0.0
+        uses: zentered/shortcut-move-ticket-action@v1
         with:
-          shortcut_story_prefix: 'ch'
+          shortcut_story_prefix: 'sc'
           shortcut_review_state_id: 100000001
           shortcut_ready_state_id: 100000002
           github_gatekeeper: 'Product-Manager'

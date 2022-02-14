@@ -1,8 +1,8 @@
 import core from '@actions/core'
 import github from '@actions/github'
-import getStoryId from './getStoryId'
-import shortcutMoveStoryState from './moveState'
-import determineTargetState from './determineTargetState'
+import getStoryId from './getStoryId.js'
+import shortcutMoveStoryState from './moveState.js'
+import determineTargetState from './determineTargetState.js'
 
 async function run() {
   const context = github.context

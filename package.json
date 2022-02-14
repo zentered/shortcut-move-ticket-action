@@ -1,7 +1,7 @@
 {
   "name": "shortcut-move-ticket-action",
   "version": "1.0.0",
-  "private": false,
+  "private": true,
   "type": "module",
   "description": "Move a ticket on Shortcut to another workflow/column",
   "keywords": [

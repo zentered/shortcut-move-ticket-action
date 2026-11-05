@@ -12,6 +12,11 @@
 
 # Shortcut Move Story Action
 
+> [!WARNING]
+> **Deprecated.** This Action is no longer maintained and the repository is
+> archived. It receives no updates, bug fixes or security patches. Existing
+> workflows that pin a release keep working until the Shortcut API changes.
+
 Shortcut.com (previously Clubhouse.io) is a project management solution that has
 a GitHub integration. The workflows are somewhat limited, this Action helps with
 that. At the moment, the Action can be configured to move a Shortcut Story from

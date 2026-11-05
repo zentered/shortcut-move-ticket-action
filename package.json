@@ -60,8 +60,8 @@
     "eslint-plugin-jest": "^26.1.0",
     "eslint-plugin-node": "^11.1.0",
     "husky": "^7.0.4",
-    "jest": "^27.5.1",
-    "jest-config": "^27.5.1",
+    "jest": "^30.5.2",
+    "jest-config": "^30.5.2",
     "lint-staged": "^12.3.4",
     "pinst": "^2.1.6",
     "prettier": "^2.5.1"
